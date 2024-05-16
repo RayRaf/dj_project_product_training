@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+
+    {% for o in object_list %}
+        <a href="{% url 'app:'|add:edit_url o.id %}"> {{o}} </a><br>
+    {% endfor %}
+    <br>
+    <hr>
+    <a href="{% url 'app:'|add:create_url %}"> Создать новый </a>
+
+
+{% endblock %}

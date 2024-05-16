@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title %} Имя страницы {% endblock %} </title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar">
+    <ul>
+        <li><a href="{% url 'app:home' %}">Домой</a></li>
+        <li><a href="{% url 'app:projects' %}">Проекты</a></li>
+        <li><a href="{% url 'app:products' %}">База наименований</a></li>
+        <li><a href="{% url 'app:logout' %}">Выйти из аккаунта</a></li>
+    </ul>
+</nav>
+
+<!-- Main Content -->
+<div class="content">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; Рафиков Раиль</p>
+</footer>
+</body>
+</html>

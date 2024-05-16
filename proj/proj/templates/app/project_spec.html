@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} Спецификация проекта {{project}} {% endblock %}
+
+{% block content %}
+
+<h3> В состав проекта {{project}} входит: </h3>
+
+    {% for p in products %}
+
+    {{p}} <a href="{% url 'app:product' p.id %}">Редактирование</a><a href="{% url 'app:rem_product_from_the_project' p.id project.id %}">Удалить из проекта</a><br>
+
+    {% endfor %}
+
+<hr>
+<h3> Можно добавить </h3>
+
+    {% for e in existing_products %}
+
+    {{e}} <a href="{% url 'app:product' e.id %}">Редактирование</a><a href="{% url 'app:add_product_to_the_project' e.id project.id %}">Добавить в проект</a><br>
+
+    {% endfor %}
+
+
+    
+
+{% endblock %}
